@@ -33,6 +33,6 @@ module.exports = function(){
     });
   });
 
-  //twitterStreamClient.start(['yolohowareyoudoing'], ['-122.75','36.8','-121.75','37.8']);
-  twitterStreamClient.start(['yolohowareyoudoing']);
+  //twitterStreamClient.start(['bubblegum'], ['-122.75','36.8','-121.75','37.8']);
+  twitterStreamClient.start(['bubblegum']);
 };
