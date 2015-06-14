@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-var twitterSchema = mongoose.Schema({
+var twittSchema = mongoose.Schema({
 	created_at: String,
 	text: String,
 	name: String,
@@ -8,4 +8,4 @@ var twitterSchema = mongoose.Schema({
 	location: String
 });
 
-module.exports = mongoose.model("Books", twitterSchema);
+module.exports = mongoose.model("twitter", twittSchema);

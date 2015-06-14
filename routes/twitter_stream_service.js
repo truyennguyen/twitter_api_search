@@ -2,7 +2,6 @@ var Twitter_Model = require('../models/Twitter_Model');
 var Twitter = require('node-twitter');
 
 module.exports = function(){
-
   var twitterStreamClient = new Twitter.StreamClient(
       'O8tiQyMc6JcpnXObWSGbGKQ6q',
       '9spxoLHjXalNbbzchBOJwookR3sBLce4nBCLIrcn4wLvf3i2N4',
@@ -20,7 +19,7 @@ module.exports = function(){
       console.log('Error: ' + (error.code ? error.code + ' ' + error.message : error.message));
   });
   twitterStreamClient.on('tweet', function(tweet) {
-    
+
     var newTwitterModel = new Twitter_Model();
     newTwitterModel.created_at = tweet.created_at;
     newTwitterModel.text = tweet.text;
@@ -34,5 +33,5 @@ module.exports = function(){
     });
   });
 
-  twitterStreamClient.start(['seattle']);
+  twitterStreamClient.start(['bubblegum']);
 };
