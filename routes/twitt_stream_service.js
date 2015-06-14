@@ -1,4 +1,4 @@
-var Twitter_Model = require('../models/Twitter_Model');
+var Twitt_Model = require('../models/Twitt_Model');
 var Twitter = require('node-twitter');
 
 module.exports = function(){
@@ -19,15 +19,15 @@ module.exports = function(){
       console.log('Error: ' + (error.code ? error.code + ' ' + error.message : error.message));
   });
   twitterStreamClient.on('tweet', function(tweet) {
+    console.log(tweet);
+    var newTwittModel = new Twitt_Model();
+    newTwittModel.created_at = tweet.created_at;
+    newTwittModel.text = tweet.text;
+    newTwittModel.name = tweet.user.name;
+    newTwittModel.screen_name = tweet.user.screen_name;
+    newTwittModel.location = tweet.user.location;
 
-    var newTwitterModel = new Twitter_Model();
-    newTwitterModel.created_at = tweet.created_at;
-    newTwitterModel.text = tweet.text;
-    newTwitterModel.name = tweet.user.name;
-    newTwitterModel.screen_name = tweet.user.screen_name;
-    newTwitterModel.location = tweet.user.location;
-
-    newTwitterModel.save(function(err, data){
+    newTwittModel.save(function(err, data){
       if(err) 
         return res.status(500).json({msg: 'internal server error'});
     });

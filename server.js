@@ -3,12 +3,12 @@ var app = express();
 var mongoose = require('mongoose');
 
 var twittRoutes = express.Router();
-require('./routes/twitter_routes')(twittRoutes);
+require('./routes/twitt_routes')(twittRoutes);
 app.use('/api', twittRoutes);
 
-mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/twitter');
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/twitt');
 
-require('./routes/twitter_stream_service')();
+require('./routes/twitt_stream_service')();
 
 app.listen(process.env.PORT || 3000, function(){
 	console.log('Server running on port ' + (process.env.PORT || 3000));

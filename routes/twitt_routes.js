@@ -1,25 +1,26 @@
 'use strict';
 
-var Twitter_Model = require('../models/Twitter_Model');
+var Twitt_Model = require('../models/Twitt_Model');
 var bodyparser = require('body-parser');
 
 module.exports = function(router){
   router.use(bodyparser.json());
 
   //get all songs
-	router.get('/alltwitt', function(req, res) {
-		Twitter_Model.find({}, function(err, data){
+	router.get('/alltwitts', function(req, res) {
+		Twitt_Model.find({}, function(err, data){
 			if(err){
 				console.log(err);
-				return res.status(500).json({msg: 'internal server error'});
+				return res.status(500).json({msg: 'unable to get all twitts'});
 			}
 			res.json(data);
 		});
 	});
 
+  //add a new twitt
   router.post('/twitt', function(req, res) {
-    var newTwitter = new Twitter_Model(req.body);
-    newTwitter.save(function(err, data){
+    var newTwitt = new Twitt_Model(req.body);
+    newTwitt.save(function(err, data){
       if(err)
         return res.status(500).json({msg: 'unable to post a twitt'});
       res.json({msg: 'success'});
@@ -31,7 +32,7 @@ module.exports = function(router){
     var offset = req.param('offset');
     var limit = req.param('limit');
 
-    var query = Twitter_Model.find({});
+    var query = Twitt_Model.find({});
     query.skip(offset).limit(limit).exec('find', function(err, data) {
       if(err){
         console.log(err);
