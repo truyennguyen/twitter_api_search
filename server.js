@@ -6,7 +6,7 @@ var twittRoutes = express.Router();
 require('./routes/twitter_routes')(twittRoutes);
 app.use('/api', twittRoutes);
 
-//mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/twitter');
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/twitter');
 
 require('./routes/twitter_stream_service')();
 
