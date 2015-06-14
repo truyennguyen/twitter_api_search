@@ -1,1 +1,1 @@
-Use Twitter’s public API to stream tweets originating from Vancouver with the keyword “bubblegum”. Save these tweets to a database of your choice.
+Use Twitter’s public API to stream tweets with the keyword “bubblegum”
