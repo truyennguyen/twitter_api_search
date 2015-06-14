@@ -33,5 +33,6 @@ module.exports = function(){
     });
   });
 
-  twitterStreamClient.start(['bubblegum']);
+  //twitterStreamClient.start(['yolohowareyoudoing'], ['-122.75','36.8','-121.75','37.8']);
+  twitterStreamClient.start(['yolohowareyoudoing']);
 };

@@ -6,7 +6,7 @@ var bodyparser = require('body-parser');
 module.exports = function(router){
   router.use(bodyparser.json());
 
-  //get all songs
+  //get all twitts
 	router.get('/alltwitts', function(req, res) {
 		Twitt_Model.find({}, function(err, data){
 			if(err){
@@ -27,7 +27,7 @@ module.exports = function(router){
     });
   });
 
-  //get all songs
+  //get a range of twitts with pagination 
   router.get('/twitt', function(req, res) {
     var offset = req.param('offset');
     var limit = req.param('limit');
