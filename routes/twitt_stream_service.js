@@ -3,10 +3,10 @@ var Twitter = require('node-twitter');
 
 module.exports = function(){
   var twitterStreamClient = new Twitter.StreamClient(
-      'O8tiQyMc6JcpnXObWSGbGKQ6q',
-      '9spxoLHjXalNbbzchBOJwookR3sBLce4nBCLIrcn4wLvf3i2N4',
-      '286789830-qiefAnO0JGAJB6mkRB1YdbNYT1PVWtRJH6097Tf9',
-      'ffzLfbJFSA4XsalUPsBV9Jyd9SuEvRdaE5nbDIXwCHCfr'
+    'CONSUMER_KEY',
+    'CONSUMER_SECRET',
+    'TOKEN',
+    'TOKEN_SECRET'
   );
 
   twitterStreamClient.on('close', function() {
@@ -28,7 +28,7 @@ module.exports = function(){
     newTwittModel.location = tweet.user.location;
 
     newTwittModel.save(function(err, data){
-      if(err) 
+      if(err)
         return res.status(500).json({msg: 'internal server error'});
     });
   });

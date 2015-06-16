@@ -7,15 +7,15 @@ module.exports = function(router){
   router.use(bodyparser.json());
 
   //get all twitts
-	router.get('/alltwitts', function(req, res) {
-		Twitt_Model.find({}, function(err, data){
-			if(err){
-				console.log(err);
-				return res.status(500).json({msg: 'unable to get all twitts'});
-			}
-			res.json(data);
-		});
-	});
+  router.get('/alltwitts', function(req, res) {
+    Twitt_Model.find({}, function(err, data){
+      if(err){
+        console.log(err);
+        return res.status(500).json({msg: 'unable to get all twitts'});
+      }
+      res.json(data);
+    });
+  });
 
   //add a new twitt
   router.post('/twitt', function(req, res) {
@@ -27,7 +27,7 @@ module.exports = function(router){
     });
   });
 
-  //get a range of twitts with pagination 
+  //get a range of twitts with pagination
   router.get('/twitt', function(req, res) {
     var offset = req.param('offset');
     var limit = req.param('limit');
